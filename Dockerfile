@@ -1,6 +1,6 @@
-sudo usermod -aG docker jenkins
-sudo docker build . -t myjenkinswalaimg
-sudo docker images 
-sudo docker login -u devopsbaby -p dckr_pat_lrG1vQrY6XrcK4vEMMlRgvnZmUU
-sudo docker tag myjenkinswalaimg devopsbaby/fromjenkins
-sudo docker push devopsbaby/fromjenkins
+FROM httpd
+WORKDIR /var/www/html
+RUN touch index.html
+RUN echo "This is container" > index.html
+EXPOSE 80
+CMD ["httpd", "-d", "foreground;"]
